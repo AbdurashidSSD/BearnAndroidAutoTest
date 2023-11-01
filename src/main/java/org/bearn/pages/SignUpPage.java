@@ -1,4 +1,4 @@
-package org.example.pages;
+package org.bearn.pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -6,21 +6,21 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class SignUpPage {
     private WebDriver driver;
 
     // Page Elements
-    @AndroidFindBy(id = "com.bearn.app.snapshot:id/login_edit_email")
+    @AndroidFindBy(id = "")
     private MobileElement emailField;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ViewSwitcher/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText")
+    @AndroidFindBy(xpath = "")
     private MobileElement passwordField;
 
-    @AndroidFindBy(id = "com.bearn.app.snapshot:id/login_button_signin")
+    @AndroidFindBy(id = "")
     private MobileElement signInButton;
 
     // Constructor
-    public LoginPage(WebDriver driver) {
+    public SignUpPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

@@ -1,8 +1,8 @@
-package org.example;
+package org.bearn;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.example.pages.LoginPage;
+import org.bearn.pages.SignInPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,9 +15,9 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class LoginPageTest {
+public class SignInPageTest {
     private AndroidDriver<AndroidElement> driver;
-    private LoginPage loginPage;
+    private SignInPage signInPage;
 
     @BeforeMethod
     public void setup() throws MalformedURLException {
@@ -29,24 +29,24 @@ public class LoginPageTest {
 
         URL appiumServerURL = new URL("http://localhost:4723/wd/hub/");
         driver = new AndroidDriver<>(appiumServerURL, desiredCapabilities);
-        loginPage = new LoginPage(driver);
+        signInPage = new SignInPage(driver);
     }
-    @Test
+    @Test(priority = 0)
     public void loginTestPositive() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/login_button_signin")));
-        loginPage.enterUsername("abdurj7777@gmail.com");
-        loginPage.enterPassword("123");
-        loginPage.clickLoginButton();
+        signInPage.enterUsername("abdurj7777@gmail.com");
+        signInPage.enterPassword("123");
+        signInPage.clickLoginButton();
         Thread.sleep(10000);
     }
-    @Test
+    @Test(priority = 1)
     public void loginTestNegative() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/login_button_signin")));
-        loginPage.enterUsername("abdurj7777@gmail.com");
-        loginPage.enterPassword("123");
-        loginPage.clickLoginButton();
+        signInPage.enterUsername("abdurj7777@gmail.com");
+        signInPage.enterPassword("123");
+        signInPage.clickLoginButton();
         Thread.sleep(10000);
     }
     @AfterMethod
