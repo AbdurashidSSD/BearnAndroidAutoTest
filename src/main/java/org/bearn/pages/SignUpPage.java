@@ -82,27 +82,36 @@ public class SignUpPage {
         continueButtonAccess.click();
     }
     public void enterFirstName(String name){
+        firstNameField.click();
         firstNameField.sendKeys(name);
     }
     public void enterLastName(String lastname){
+        lastNameField.click();
         lastNameField.sendKeys(lastname);
     }
     public void enterEmail(String email){
+        emailField.click();
         emailField.sendKeys(email);
     }
     public void enterConfirmEmail(String confirmEmail){
+        confirmEmailField.click();
         confirmEmailField.sendKeys(confirmEmail);
     }
     public void enterPassword(String pass){
+        passwordField.click();
         passwordField.sendKeys(pass);
     }
     public void confirmPassword(String confirmPass){
+        confirmPasswordField.click();
         confirmPasswordField.sendKeys(confirmPass);
     }
     public void clickCheckbox(){
         privacyPolicyCheckbox.click();
     }
     public void pressSignUp(){
-        signUpButton.click();
+        signUpButtonRegistration.click();
+    }
+    public void pressContinueGettingStarted(){
+        continueGettingStartedButton.click();
     }
 }

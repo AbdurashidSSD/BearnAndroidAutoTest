@@ -65,12 +65,19 @@ public class TestCases {
         signUpPage.enterAccessCode("579a1a");
         signUpPage.clickContinueButtonAccess();
         WebElement label1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/sign_up_edit_email_et")));
-        signUpPage.enterFirstName(faker.name().name());
+        signUpPage.enterFirstName(faker.name().firstName());
         signUpPage.enterLastName(faker.name().lastName());
         signUpPage.enterEmail(email);
         signUpPage.enterConfirmEmail(email);
+        signUpPage.enterPassword("Samsungj1@");
+        signUpPage.confirmPassword("Samsungj1@");
+        driver.navigate().back();
         signUpPage.clickCheckbox();
         signUpPage.pressSignUp();
+        WebElement label2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/textView5")));
+        signUpPage.pressContinueGettingStarted();
+        WebElement label3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/textView11")));
+
     }
     @AfterMethod
     public void teardown() {
