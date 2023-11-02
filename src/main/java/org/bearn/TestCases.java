@@ -1,7 +1,9 @@
 package org.bearn;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.offset.PointOption;
 import org.bearn.pages.SignInPage;
 import org.bearn.pages.SignUpPage;
 import org.openqa.selenium.By;
@@ -22,6 +24,7 @@ public class TestCases {
     private SignInPage signInPage;
     private SignUpPage signUpPage;
     private Faker faker;
+    private TouchAction touchAction;
 
     @BeforeMethod
     public void setup() throws MalformedURLException {
@@ -36,6 +39,7 @@ public class TestCases {
         signInPage = new SignInPage(driver);
         signUpPage = new SignUpPage(driver);
         faker = new Faker();
+        touchAction = new TouchAction(driver);
     }
     @Test(priority = 0)
     public void signInTestPositive() throws InterruptedException {
@@ -56,7 +60,7 @@ public class TestCases {
         Thread.sleep(10000);
     }
     @Test
-    public void signUpTestPositive(){
+    public void signUpTestPositive() throws InterruptedException {
         String email = faker.internet().emailAddress();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/login_button_signin")));
@@ -77,8 +81,18 @@ public class TestCases {
         WebElement label2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/textView5")));
         signUpPage.pressContinueGettingStarted();
         WebElement label3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/textView11")));
-
+        signUpPage.pressFitbitConnect();
+        WebElement label6 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.view.View[@content-desc=\"Fitbit Home\"]/android.widget.Image")));
+        touchAction.tap(new PointOption().withCoordinates(503, 765)).perform();
+        Thread.sleep(5000);
+        touchAction.tap(new PointOption().withCoordinates(416, 641)).perform();
+        Thread.sleep(5000);
+        touchAction.tap(new PointOption().withCoordinates(97, 590)).perform();
+        Thread.sleep(5000);
+        touchAction.tap(new PointOption().withCoordinates(879, 1496)).perform();
+        WebElement label8 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.bearn.app.snapshot:id/status")));
     }
+
     @AfterMethod
     public void teardown() {
         driver.quit();

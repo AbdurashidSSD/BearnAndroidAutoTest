@@ -64,6 +64,18 @@ public class SignUpPage {
     @AndroidFindBy(id = "ember632")
     private MobileElement signInToFitbit;
 
+    @AndroidFindBy(id = "com.android.chrome:id/negative_button")
+    private MobileElement noThanksButton;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.widget.Button")
+    private MobileElement continueWithGoogleBtn;
+
+    @AndroidFindBy(id = "selectAllScope")
+    private MobileElement allowAllBtn;
+
+    @AndroidFindBy(id = "allow-button")
+    private MobileElement allowButton;
+
 
     // Constructor
     public SignUpPage(WebDriver driver) {
@@ -114,4 +126,23 @@ public class SignUpPage {
     public void pressContinueGettingStarted(){
         continueGettingStartedButton.click();
     }
+    public void pressFitbitConnect(){
+        connectFitbit.click();
+    }
+    public void pressAcceptChromeTerms(){
+        acceptChromeTerms.click();
+    }
+    public void pressNoThanksButton(){
+        noThanksButton.click();
+    }
+    public void pressContinueWithGoogle(){
+        continueWithGoogleBtn.click();
+    }
+    public void pressAllowAllBtn(){
+        allowAllBtn.click();
+    }
+    public void pressAllowBtn(){
+        allowButton.click();
+    }
+
 }
