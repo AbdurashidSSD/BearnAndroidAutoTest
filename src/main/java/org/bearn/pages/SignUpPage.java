@@ -76,6 +76,9 @@ public class SignUpPage {
     @AndroidFindBy(id = "allow-button")
     private MobileElement allowButton;
 
+    @AndroidFindBy(id = "com.bearn.app.snapshot:id/connectApp")
+    private MobileElement continueConnectedDevices;
+
 
     // Constructor
     public SignUpPage(WebDriver driver) {
@@ -143,6 +146,9 @@ public class SignUpPage {
     }
     public void pressAllowBtn(){
         allowButton.click();
+    }
+    public void pressContinueConnectedDevices(){
+        continueConnectedDevices.click();
     }
 
 }
